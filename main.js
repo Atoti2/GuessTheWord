@@ -20,7 +20,7 @@ function selectRandomWord(words){
 }
 
 let randomWord = selectRandomWord(words)
-const win = []
+let win = []
 let time
 
 document.querySelector('button').addEventListener('click', start)
@@ -70,11 +70,13 @@ function setTimer(){
         document.querySelector('.timer').innerHTML = time
         if(time == 0){
             document.querySelector('.over').innerHTML = "Vesztettél!"
+            win = []
             clearInterval(id)
             document.querySelector('button').removeEventListener('click,', start)
         }
         if(win.length == randomWord.length){
             document.querySelector('.over').innerHTML = "Gratulálok, kitaláltad!"
+            win = []
             clearInterval(id)
             document.querySelector('button').removeEventListener('click,', start)
         }
